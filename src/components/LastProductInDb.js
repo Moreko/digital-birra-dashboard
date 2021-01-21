@@ -1,9 +1,31 @@
-import React from "react"
+import React, {Component} from "react"
 
 //Aquí hago la importanción de la imagen: product_dummy.svg
-import product_dummy from '../assets/images/product_dummy.svg';
+// import product_dummy from '../assets/images/product_dummy.svg';
 
-function LastProductInDb(){
+class LastProductInDb extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            producto: {}
+        }
+    }
+
+    componentDidMount(){
+        fetch("/api/birras")
+        .then(respuesta=>{
+            return respuesta.json()
+        })
+        .then(productos => {
+            this.setState({producto:productos.data[productos.meta.total-1]})
+        }) 
+        .catch(error => console.log(error))
+    }
+    
+
+
+    render(){
     return(
 
         <React.Fragment>
@@ -14,15 +36,15 @@ function LastProductInDb(){
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 25+'rem'}} src={product_dummy} alt="image dummy"/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15+'rem'}} src={'products/'+ this.state.producto.imagen} alt="lastdb"/>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa exercitationem ratione?</p>
+                    <p>{this.state.producto.descripcion}</p>
                     <a target="_blank" rel="nofollow" href="/">View product detail</a>
                 </div>
             </div>
             </div>
         </React.Fragment>
-    )
+    )}
 }
 
 export default LastProductInDb;

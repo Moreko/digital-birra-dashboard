@@ -11,7 +11,7 @@ function ContentRowBotton(){
         {/*<!-- Content Row -->*/}
         <div className="row">
             {/*<!-- Last Product in DB -->*/}
-           <LastProductInDb />
+           <LastProductInDb descripcion ='sarasa'/>
 
             {/*<!-- Categories in DB -->*/}
             <CategoryInDb />
