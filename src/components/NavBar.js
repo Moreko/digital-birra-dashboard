@@ -1,5 +1,5 @@
 import React from 'react';
-import imagen from '../assets/images/dummy-avatar.jpg';
+import imagen from '../assets/images/LogoA.svg';
 
 function NavBar(){
     return(
@@ -39,7 +39,7 @@ function NavBar(){
 						<li className="nav-item dropdown no-arrow">
 							<a className="nav-link dropdown-toggle" href="/" id="userDropdown">
 								<span className="mr-2 d-none d-lg-inline text-gray-600 small">Bob Is Japanese</span>
-								<img className="img-profile rounded-circle" src={imagen} width="60" alt='Imagen de Dummy'/>
+								<img className="img-profile rounded-circle" src={imagen} width="70" alt='logo'/>
 							</a>
 						</li>
 

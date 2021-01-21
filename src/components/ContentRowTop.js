@@ -3,7 +3,7 @@ import SmallCard from './SmallCard';
 
 
 let productInDataBase = {
-    color:   "success",
+    color:   "primary",
     titulo: "Productos en DB",
     valor: 0,
     icono: "fa-clipboard-list",
@@ -19,14 +19,12 @@ let amount ={
 }
 
 let user = {
-    color:   "success",
+    color:   "danger",
     titulo: "Cantidad de usuarios",
     valor: 0,
     icono: "fa-user-check",
     moneda: false
 }
-
-let cardProps = [productInDataBase,amount,user];
 
 
 class ContentRowTop extends Component{
@@ -35,8 +33,7 @@ class ContentRowTop extends Component{
         super(props)
         this.state={
             productos:[],
-            usuarios:0,
-            total:0
+            usuarios:[],
         }
     }
 
@@ -46,7 +43,7 @@ class ContentRowTop extends Component{
             return respuesta.json()
         })
         .then(productos => {
-            this.setState({productos:productos.data})
+            this.setState({productos:productos.meta})
         }) 
         .catch(error => console.log(error))
 
@@ -65,13 +62,8 @@ class ContentRowTop extends Component{
         <React.Fragment>
         {/*<!-- Content Row -->*/}
         <div className="row">
-            {/* {
-                cardProps.map((producto,index)=>{
-                    return <SmallCard  {...producto} valor={this.state.usuarios} key= {index}/>
-                })
-            }       */}
-            <SmallCard  {...productInDataBase} valor={this.state.productos.length -1} key= {0}/>
-            <SmallCard  {...amount} valor={0} key= {1}/>
+            <SmallCard  {...productInDataBase} valor={this.state.productos.total} key= {0}/>
+            <SmallCard  {...amount} valor={this.state.productos.valorTotal} key= {1}/>
             <SmallCard  {...user} valor={this.state.usuarios} key= {2}/>
         </div>
         </React.Fragment>

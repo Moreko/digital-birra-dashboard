@@ -1,19 +1,29 @@
-import React from "react"
 import Category from './Category';
-
-let categorias = [
-    {categoria: "01"},
-    {categoria: "02"},
-    {categoria: "03"},
-    {categoria: "04"},
-    {categoria: "05"},
-    {categoria: "06"},
-    {categoria: "07"},
-    {categoria: "08"},
-]
+import React, {Component} from 'react';
 
 
-function CategoryInDb(){
+class CategoryInDb extends Component{
+
+    constructor(props){
+        super(props)
+        this.state={
+            estilos:[]
+        }
+    }
+
+    componentDidMount(){
+        fetch("/api/birras/estilos")
+        .then(respuesta=>{
+            return respuesta.json()
+        })
+        .then(estilos => {
+            this.setState({estilos:estilos})
+        }) 
+        .catch(error => console.log(error))
+    }
+
+
+    render(){
     return(
 
         <React.Fragment>
@@ -26,7 +36,7 @@ function CategoryInDb(){
                     <div className="card-body">
                         <div className="row">
                            {
-                               categorias.map((categoria, index) =>{
+                               this.state.estilos.map((categoria, index) =>{
                                    return <Category {...categoria} key={index}/>
                                })
                            }
@@ -38,5 +48,5 @@ function CategoryInDb(){
         </React.Fragment>
     )
 }
-
+}
 export default CategoryInDb;
