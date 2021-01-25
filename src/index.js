@@ -4,11 +4,18 @@ import './assets/css/app.css';
 
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, BrowserRouter as Router, Route} from 'react-router-dom'
+import Tablas from "./components/Tablas";
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Router>
+      <App />
+      <Route path='/tablas' component={Tablas}/>
+    </Router>
+    </BrowserRouter>
   </React.StrictMode>,
   document.querySelector('.principal')
 );

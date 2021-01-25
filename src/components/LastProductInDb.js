@@ -8,7 +8,8 @@ class LastProductInDb extends Component{
     constructor(props){
         super(props)
         this.state={
-            producto: {}
+            producto: {},
+            imagen: ''
         }
     }
 
@@ -19,6 +20,7 @@ class LastProductInDb extends Component{
         })
         .then(productos => {
             this.setState({producto:productos.data[productos.meta.total-1]})
+            this.setState({imagen:'http://localhost:5000/img/products/'+ this.state.producto.imagen})
         }) 
         .catch(error => console.log(error))
     }
@@ -36,7 +38,7 @@ class LastProductInDb extends Component{
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15+'rem'}} src={'products/'+ this.state.producto.imagen} alt="lastdb"/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15+'rem'}} src={this.state.imagen} alt="lastdb"/>
                     </div>
                     <p>{this.state.producto.descripcion}</p>
                     <a target="_blank" rel="nofollow" href="/">View product detail</a>

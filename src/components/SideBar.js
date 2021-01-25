@@ -1,5 +1,6 @@
 import React from 'react';
 import imagen from '../assets/images/LogoA.svg';
+import {Link} from 'react-router-dom'
 
 function SideBar(){
     return(
@@ -34,24 +35,24 @@ function SideBar(){
 
 			{/*<!-- Nav Item - Pages -->*/}
 			<li className="nav-item">
-				<a className="nav-link collapsed" href="/">
+				<Link className="nav-link collapsed" to="paginas">
 					<i className="fas fa-fw fa-folder"></i>
 					<span>Páginas</span>
-				</a>
+				</Link>
 			</li>
 
 			{/*<!-- Nav Item - Charts -->*/}
 			<li className="nav-item">
-				<a className="nav-link" href="/">
+				<Link className="nav-link" to="graficos">
 					<i className="fas fa-fw fa-chart-area"></i>
-					<span>Gráficos</span></a>
+					<span>Gráficos</span></Link>
 			</li>
 
 			{/*<!-- Nav Item - Tables -->*/}
 			<li className="nav-item">
-				<a className="nav-link" href="/">
+				<Link className="nav-link" to="tablas">
 					<i className="fas fa-fw fa-table"></i>
-					<span>Tablas</span></a>
+					<span>Tablas</span></Link>
 			</li>
 
 			{/*<!-- Divider -->*/}
