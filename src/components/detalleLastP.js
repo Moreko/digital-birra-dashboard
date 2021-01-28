@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import Footer from './Footer'
 
 class detalleLastP extends Component{
 
@@ -28,21 +29,68 @@ class detalleLastP extends Component{
     return(
 
         <React.Fragment>
-            <div className="container-fluid">
-            <div className="card shadow mb-4">
+            <div className="container-fluid bg-dark">
                 <div className="card-header py-3">
                     <h6 className="m-0 font-weight-bold text-primary">Último producto en base de datos</h6>
                 </div>
-                <div className="card-body">
-                    <div className="text-center">
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15+'rem'}} src={this.state.imagen} alt="lastdb"/>
+
+
+
+
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm">
+                    <div className="card-body">
+                                        <div className="text-center">
+                                            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: "100%"}} src={this.state.imagen} alt="lastdb"/>
+                                        </div>
+                                    </div>
                     </div>
-                    <p>{this.state.producto.descripcion}</p>
-                    <p>{this.state.producto.tamano}</p>
-                    <p>{this.state.producto.precio}</p>
-                </div>
+                <div className="col-sm">
+                <table className="table table-dark"style={{"margin-top": "20%"}} >
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Descripcion</td>
+                        <td>{this.state.producto.descripcion}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Tamaño</td>
+                        <td>{`${this.state.producto.tamano}ml`}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>Precio</td>
+                        <td>{`$${this.state.producto.precio}`}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">4</th>
+                        <td>Stock</td>
+                        <td>{`${this.state.producto.stock}`}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">5</th>
+                        <td>IBU</td>
+                        <td>{`${this.state.producto.ibu}`}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">6</th>
+                        <td>Alcohol</td>
+                        <td>{`${this.state.producto.alcohol}%`}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                    </div>
+                    
             </div>
             </div>
+            <Footer/>
+        </div>
+
         </React.Fragment>
     )}
 }

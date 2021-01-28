@@ -3,7 +3,6 @@ import imagen from '../assets/images/LogoA.svg';
 import {Link, Switch, Route} from 'react-router-dom'
 import detalleLastP from './detalleLastP';
 import Content from './Content';
-import Tablas from "./Tablas";
 import Graficos from "./Graficos";
 
 function SideBar(){
@@ -37,13 +36,6 @@ function SideBar(){
 			{/*<!-- Heading -->*/}
 			<div className="sidebar-heading">Acciones</div>
 
-			{/*<!-- Nav Item - Pages -->*/}
-			<li className="nav-item">
-				<Link className="nav-link collapsed" to="paginas">
-					<i className="fas fa-fw fa-folder"></i>
-					<span>Páginas</span>
-				</Link>
-			</li>
 
 			{/*<!-- Nav Item - Charts -->*/}
 			<li className="nav-item">
@@ -52,12 +44,13 @@ function SideBar(){
 					<span>Gráficos</span></Link>
 			</li>
 
-			{/*<!-- Nav Item - Tables -->*/}
+			{/*<!-- Nav Item - Charts -->*/}
 			<li className="nav-item">
-				<Link className="nav-link" to="tablas">
-					<i className="fas fa-fw fa-table"></i>
-					<span>Tablas</span></Link>
+				<Link className="nav-link" to="detalle">
+					<i className="fas fa-fw fa-chart-area"></i>
+					<span>Último producto</span></Link>
 			</li>
+
 
 			{/*<!-- Divider -->*/}
 			<hr className="sidebar-divider d-none d-md-block"/>
@@ -66,7 +59,6 @@ function SideBar(){
 
 	<Switch>
         <Route exact path='/detalle' component={detalleLastP}/>
-		<Route exact path='/tablas' component={Tablas}/>
 		<Route exact path='/graficos' component={Graficos}/>
 		<Route exact path='/' component={Content}/>
      </Switch>
