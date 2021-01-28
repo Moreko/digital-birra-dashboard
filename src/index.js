@@ -4,8 +4,8 @@ import './assets/css/app.css';
 
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, BrowserRouter as Router, Route} from 'react-router-dom'
-import Tablas from "./components/Tablas";
+import {BrowserRouter, BrowserRouter as Router} from 'react-router-dom'
+
 
 
 ReactDOM.render(
@@ -13,7 +13,6 @@ ReactDOM.render(
     <BrowserRouter>
     <Router>
       <App />
-      <Route path='/tablas' component={Tablas}/>
     </Router>
     </BrowserRouter>
   </React.StrictMode>,

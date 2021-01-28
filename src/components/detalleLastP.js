@@ -1,7 +1,6 @@
 import React, {Component} from "react"
-import {Link} from 'react-router-dom'
 
-class LastProductInDb extends Component{
+class detalleLastP extends Component{
 
     constructor(props){
         super(props)
@@ -29,7 +28,7 @@ class LastProductInDb extends Component{
     return(
 
         <React.Fragment>
-            <div className="col-lg-6 mb-4">
+            <div className="container-fluid">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
                     <h6 className="m-0 font-weight-bold text-primary">Último producto en base de datos</h6>
@@ -39,7 +38,8 @@ class LastProductInDb extends Component{
                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 15+'rem'}} src={this.state.imagen} alt="lastdb"/>
                     </div>
                     <p>{this.state.producto.descripcion}</p>
-                    <Link rel="nofollow" to="detalle">View product detail</Link>
+                    <p>{this.state.producto.tamano}</p>
+                    <p>{this.state.producto.precio}</p>
                 </div>
             </div>
             </div>
@@ -47,4 +47,4 @@ class LastProductInDb extends Component{
     )}
 }
 
-export default LastProductInDb;
+export default detalleLastP;

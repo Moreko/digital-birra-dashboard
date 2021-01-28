@@ -1,6 +1,10 @@
 import React from 'react';
 import imagen from '../assets/images/LogoA.svg';
-import {Link} from 'react-router-dom'
+import {Link, Switch, Route} from 'react-router-dom'
+import detalleLastP from './detalleLastP';
+import Content from './Content';
+import Tablas from "./Tablas";
+import Graficos from "./Graficos";
 
 function SideBar(){
     return(
@@ -59,6 +63,13 @@ function SideBar(){
 			<hr className="sidebar-divider d-none d-md-block"/>
 		</ul>
 		{/*<!-- End of Sidebar -->*/}
+
+	<Switch>
+        <Route exact path='/detalle' component={detalleLastP}/>
+		<Route exact path='/tablas' component={Tablas}/>
+		<Route exact path='/graficos' component={Graficos}/>
+		<Route exact path='/' component={Content}/>
+     </Switch>
 
         </React.Fragment>
     )
